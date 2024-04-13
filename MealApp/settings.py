@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'account'
+    'account',
+    'mess'
 ]
 
 MIDDLEWARE = [
@@ -77,7 +78,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'MealApp.wsgi.application'
 
 # Custom User model
-AUTH_USER_MODEL = "account.User"
+# AUTH_USER_MODEL = "account.User"
 
 
 # Database
