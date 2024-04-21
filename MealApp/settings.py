@@ -78,7 +78,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'MealApp.wsgi.application'
 
 # Custom User model
-# AUTH_USER_MODEL = "account.User"
+AUTH_USER_MODEL = "account.User"
 
 
 # Database

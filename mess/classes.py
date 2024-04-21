@@ -12,9 +12,6 @@ class Mess:
             raise AssertionError("Provide mess id")
         mess = models.Mess.objects.filter(id=id)
         serializer_data = serializer.MessSerializer(data=mess[0])
-        # serializer_data.is_valid()
-        # print(serializer_data.error_messages)
-        # data = serializer_data.data
         data = serializer.MessSerializer(mess[0]).data
         print(data)
         return data
