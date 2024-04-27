@@ -39,8 +39,37 @@ class User:
             raise AssertionError("User id not provided.")
 
         user = models.User.objects.filter(id=id)
-        serializer_data = serializer.UserSerializer(user,many=True)
+        serializer_data = serializer.UserSerializer(user[0])
         serializer_data = serializer_data.data
         return serializer_data   
 
+    def update_user(self,id=None):
+        if not id:
+            raise AssertionError("User Id is not provided")
+            
+        user = models.User.objects.filter(id=id)
+        if not user:
+            raise AssertionError("Provide valid user Id")
 
+        data = self.request.data
+        # print(dir(user[0]))
+        user = user[0]
+        for key, value in data.items():
+            setattr(user, key, value)
+        user.save()
+
+    def delete_user(self,id=None):
+        if not id:
+            raise AssertionError("User Id is not provided")
+            
+        user = models.User.objects.filter(id=id)
+        if not user:
+            raise AssertionError("Provide valid user Id")
+
+        data = self.request.data
+        # print(dir(user[0]))
+        user = user[0]
+        user.is_active = True
+        user.is_active = True
+
+        user.save()
